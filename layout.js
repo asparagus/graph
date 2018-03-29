@@ -29,10 +29,15 @@ function setLocations(nodes, edges, layerWidth = 100, rowHeight = 50) {
         layer.forEach(i => nodes[i].level = idx);
     });
 
+    // Set initial positions
     locate(nodes, layers, layerWidth, rowHeight);
+
+    // Adjust
     for (var i = 0; i < 10; i++) {
         if (!verticalAdjust(nodes, adjacencyList, layers)) { break; }
     }
+
+    // Settle on final positions
     locate(nodes, layers, layerWidth, rowHeight);
 }
 
