@@ -46,7 +46,7 @@ function setLocations(nodes, edges, layerWidth = 100, rowHeight = 50) {
  *
  * @param  {Array[Object]}     nodes         An array containing all the node objects
  * @param  {Array[Array[Int]]} adjacencyList A map that for each node index, contains an array of input node indices to it
- * @return {Map(Int -> Int)} A map containing the layer # for each node index
+ * @return {Array[Array[Int]]} An Array with an Array of node indices for each layer
  */
 function computeLayersForNode(nodes, adjacencyList) {
     var sources = [];
