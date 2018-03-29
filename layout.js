@@ -7,8 +7,8 @@
  *
  * @param {Array[Object]} nodes      An array of objects to which to add x, y locations
  * @param {Array[Object]} edges      An array of objects with source and target properties which are indices for the nodes Array
- * @param  {Int}          layerWidth Horizontal separation between nodes
- * @param  {Int}          rowHeight  Vertical separation between nodes
+ * @param {Int}          layerWidth Horizontal separation between nodes
+ * @param {Int}          rowHeight  Vertical separation between nodes
  */
 function setLocations(nodes, edges, layerWidth = 100, rowHeight = 50) {
     var adjacencyList = new Array(nodes.length);
