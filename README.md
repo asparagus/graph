@@ -15,4 +15,4 @@ var edges = [
 
 setLocations(nodes, edges, layerWidth = 100, rowHeight = 75);
 ```
-![Example](example.png) "Example"
+![Example](example.png)
