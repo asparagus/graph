@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <style>
+            html, body { height: 100%; }
+        </style>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="layout.js"></script>
+        <script type="text/javascript">
+            var nodes = [{}, {}, {}, {}, {}, {}, {}];
+            var edges = [
+                { source: 0, target: 1 },
+                { source: 0, target: 2 },
+                { source: 1, target: 3 },
+                { source: 1, target: 4 },
+                { source: 2, target: 6 },
+                { source: 3, target: 6 },
+                { source: 5, target: 6 }
+            ];
+
+            setLocations(nodes, edges, layerWidth = 100, rowHeight = 75);
+        </script>
+    </head>
+    <body>
+        <div id="graph"></div>
+        <script type="text/javascript">
+            var vis = d3.select("#graph").append("svg");
+            var w = 900, h = 800;
+            vis.attr("width", w)
+                .attr("height", h);
+            vis.selectAll("circle .nodes")
+                .data(nodes)
+                .enter()
+                .append("svg:circle")
+                .attr("class", "nodes")
+                .attr("cx", n => n.x)
+                .attr("cy", n => n.y)
+                .attr("r", "10px")
+                .attr("fill", "black")
+                .attr("transform", "translate(" + 100 + "," + h / 2 + ")")
+                .attr("id", n => nodes.indexOf(n));
+            vis.selectAll(".line")
+               .data(edges)
+               .enter()
+               .append("line")
+               .attr("x1", function(d) { return nodes[d.source].x })
+               .attr("y1", function(d) { return nodes[d.source].y })
+               .attr("x2", function(d) { return nodes[d.target].x })
+               .attr("y2", function(d) { return nodes[d.target].y })
+               .style("stroke", "rgb(6,120,155)")
+               .attr("transform", "translate(" + 100 + "," + h / 2 + ")");
+        </script>
+    </body>
+</html>
